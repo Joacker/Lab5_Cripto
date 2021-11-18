@@ -1,5 +1,6 @@
 /* IMPORTS */
-const mongoose = require('mongoose')
+const mongoose = require('./src/config/database')
+const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
@@ -26,5 +27,7 @@ server.get('/', (req,res) => res.send('<h1>Server Operando</h1>'))
 
 /* PORTS */
 
-
-console.log('hola mundo')
+/* SERVER */
+server.listen(port,()=>{
+    console.log(`Servidor de pdf-reader-app corriendo en: http://${ip}:${port}.`)
+})
