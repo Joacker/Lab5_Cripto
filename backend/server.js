@@ -1,5 +1,4 @@
 /* IMPORTS */
-const mongoose = require('./src/config/database')
 const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv')
@@ -26,6 +25,8 @@ var ip = process.env.PORT || 'localhost'
 server.get('/', (req,res) => res.send('<h1>Server Operando</h1>'))
 
 /* PORTS */
+
+server.use('/api/users', require('./src/api/users'))
 
 /* SERVER */
 server.listen(port,()=>{
