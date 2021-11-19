@@ -11,6 +11,16 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
+    <table id="example" class="display" cellspacing="0" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Password</th>
+                <th>IP</th>
+                <th>SO</th>
+            </tr>
+        </thead>
+    </table>
     <script>
         $(document).ready( function () {
             $('#example').DataTable();
@@ -29,70 +39,42 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-    
-                    /*for(var i=0; i<data.length;i++){
-                        if(data[i].roleid == 3 || data[i].roleid == 4){
-                            console.log("voh erí tutor",data[i].roleid)
-                        }
-                        else if(data[i].roleid == 9 || data[i].roleid == 12){
-                            console.log("voh erí docente",data[i].roleid)
-                        }
-                    }*/
+                $(document).ready(function() {
+                    $('#example').DataTable({
+                        destroy: true,
+                        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+                        data: Object.values(data),
+                        columns: [
+                        {"data":"id"},
+                        {"data":"password"},
+                        {"data":"ip"},
+                        {"data":"so"}
+                        ]
+                    })
+                    
+                });
             });
     
         }
     </script>
     <script>
         $(document).ready(function() {
-            
             cargarDatos()
+            $('#example').DataTable( {
+                data: [],
+                columns: [
+                { title: "ID" },
+                { title: "Password" },
+                { title: "IP" },
+                { title: "SO" }
+                ],
+                retrieve: true,
+                destroy: true,
+                paging: false,
+                searching: false
+            });
         })
     </script>
-    <table id="example" class="display" cellspacing="0" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012/03/29</td>
-                <td>$433,060</td>
-            </tr>
-        </tbody>
-    </table>
+    
 </body>
 </html>
