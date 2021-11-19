@@ -10,7 +10,7 @@ const poolPDF = new Pool ({
     user: process.env.USER_PDF,
     password: process.env.PASS_PDF,
     database: process.env.DATABASE_PDF,
-    port: process.env.PORT_PDF
+    port: process.env.PORT_PDF,
 });
 
 
