@@ -1,12 +1,20 @@
-/* IMPORTS */
+/* IMPORT */
 
-const mongoose = require('mongoose')
+const Pool = require('pg').Pool
 
-const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI,{
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-})
-.then(db => console.log('Database is connected'))
-.catch(err => console.log(err));
+/* ENVS */
+
+const poolPDF = new Pool ({
+    host: process.env.HOST_PDF,
+    user: process.env.USER_PDF,
+    password: process.env.PASS_PDF,
+    database: process.env.DATABASE_PDF,
+    port: process.env.PORT_PDF
+});
+
+
+
+module.exports = {
+    poolPDF,
+};

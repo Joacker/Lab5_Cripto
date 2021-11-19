@@ -1,13 +1,13 @@
-const Note = require('../config/Note')
+const { poolPDF } = require('../config/database')
 
 const usuarios = async (req,res) => {
-    //res.header("Access-Control-Allow-Origin","*");
-    const response = await Note.find();
-    console.log("funcionando");
+    res.header("Access-Control-Allow-Origin","*");
+    const response = await poolPDF.query(`select * from encontrados`);
+    console.log("Getting all clientes");
+    console.log(response.rows[0].ip);
     res.json(response.rows);
-    res.send("note add");
 };
 
 module.exports = {
-    usuarios
+    usuarios,
 };
