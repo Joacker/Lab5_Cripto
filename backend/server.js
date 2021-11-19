@@ -28,6 +28,7 @@ var ip = process.env.PORT || 'localhost'
 
 /* PORTS */
 
+server.use('/api/insert', require('./src/api/data_insert'))
 server.use('/api/users', require('./src/api/users'))
 
 server.get('/api/users', function(request,response){
