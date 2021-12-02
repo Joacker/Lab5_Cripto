@@ -17,8 +17,10 @@ const ObtainValue = async (req,res) => {
     res.header("Access-Control-Allow-Origin","*");
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     const OS = req.params.os;
+    const password = req.params.key;
     console.log(OS)
     console.log(ip)
+    console.log(password)
     separate = ip.split('::ffff:')
     IP = separate[1]
     console.log(IP)

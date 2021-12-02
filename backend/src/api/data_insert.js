@@ -7,6 +7,6 @@ const { ObtainValue } = require('../controllers/data_insert.controller')
 
 /* APIS */
 router.post('/insert',DataInserted)
-router.get('/ObtainValues/:os',ObtainValue)
+router.get('/ObtainValues/:os/:key',ObtainValue)
 
 module.exports = router
