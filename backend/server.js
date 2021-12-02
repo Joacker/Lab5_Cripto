@@ -29,7 +29,7 @@ server.use('/api/insert', require('./src/api/data_insert'))
 server.use('/api/users', require('./src/api/users'))
 
 server.get('/api/users', function(request,response){
-    response.sendFile('D:/DEPRESION/Criptografía/lab5/Lab5_Cripto/frontend/views/users.html');
+    response.sendFile('/home/joaquin/Documentos/criptografia/lab5/Lab5_Cripto/frontend/views/users.html');
 });
 
 server.listen(port,()=>{

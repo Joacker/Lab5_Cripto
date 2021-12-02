@@ -12,6 +12,17 @@ const DataInserted = async (req,res) => {
     //console.log(response.rows[0].ip);
 };
 
+const ObtainValue = async (req,res) => {
+    console.log('Data Collected')
+    const OS = req.params.os;
+    console.log(OS)
+    res.json(OS)
+    //console.log(response.rows[0].ip);
+};
+
+
+
 module.exports = {
     DataInserted,
+    ObtainValue,
 };
