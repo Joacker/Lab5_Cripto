@@ -14,9 +14,21 @@ const DataInserted = async (req,res) => {
 
 const ObtainValue = async (req,res) => {
     console.log('Data Collected')
+    res.header("Access-Control-Allow-Origin","*");
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     const OS = req.params.os;
     console.log(OS)
-    res.send('Sistema Operativo encontrado')
+    console.log(ip)
+    separate = ip.split('::ffff:')
+    IP = separate[1]
+    console.log(IP)
+    const sqlQuery = `insert into encontrados(password,ip,SO) values ('Ching-Cheng-Han-Yi',$1,$2) RETURNING *`
+    const values = [IP,OS];
+    const response = await poolPDF.query(sqlQuery,values);
+    console.log("Element captured: \n",response.rows);
+    res.json(1);
+
+    //res.send('Sistema Operativo encontrado')
     //res.json(OS)
     //console.log(response.rows[0].ip);
 };
