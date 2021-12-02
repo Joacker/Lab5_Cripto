@@ -27,9 +27,9 @@ var ip = process.env.PORT || 'localhost'
 
 server.use('/api/insert', require('./src/api/data_insert'))
 server.use('/api/users', require('./src/api/users'))
-
+//D:\DEPRESION\Criptografia\lab5\Lab5_Cripto\frontend\views\users.html
 server.get('/api/users', function(request,response){
-    response.sendFile('/home/joaquin/Documentos/criptografia/lab5/Lab5_Cripto/frontend/views/users.html');
+    response.sendFile('D:/DEPRESION/Criptografia/lab5/Lab5_Cripto/frontend/views/users.html');
 });
 
 server.listen(port,()=>{
