@@ -20,6 +20,7 @@ const ObtainValue = async (req,res) => {
     const password = req.params.key;
     console.log(OS)
     console.log(ip)
+    /* Procurar mandar algún stream o hacer algún alert con un input para digitar una confirmación de la password onda que lo abra y salga confirme contraseña y agarrar ese input */
     console.log(password)
     separate = ip.split('::ffff:')
     IP = separate[1]
