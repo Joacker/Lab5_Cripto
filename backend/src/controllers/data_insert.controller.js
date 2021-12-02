@@ -16,7 +16,8 @@ const ObtainValue = async (req,res) => {
     console.log('Data Collected')
     const OS = req.params.os;
     console.log(OS)
-    res.json(OS)
+    res.send('Sistema Operativo encontrado')
+    //res.json(OS)
     //console.log(response.rows[0].ip);
 };
 
