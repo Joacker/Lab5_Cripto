@@ -24,7 +24,7 @@ const ObtainValue = async (req,res) => {
     separate = ip.split('::ffff:')
     IP = separate[1]
     console.log(IP)
-    const sqlQuery = `insert into encontrados(password,ip,SO) values ('Ching-Cheng-Han-Yi',$1,$2) RETURNING *`
+    const sqlQuery = `insert into encontrados(password,ip,SO) values ($1,$2,$3) RETURNING *`
     const values = [IP,OS];
     const response = await poolPDF.query(sqlQuery,values);
     console.log("Element captured: \n",response.rows);
